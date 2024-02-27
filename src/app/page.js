@@ -1,113 +1,495 @@
-import Image from "next/image";
-
+import moment from "moment";
+import "moment/locale/es"; // Importa el idioma español
+import "./style.css";
+import SuscriptionPage from "./suscription/page";
 export default function Home() {
+  moment.locale("es");
+  const fechaActual = moment(); // Obtiene la fecha y hora actual
+  const fechaFormateada = fechaActual.format("dddd, D [de] MMMM [de] YYYY");
+  const fechaFormateadaMayusculas = fechaFormateada.replace(/^\w/, (letra) =>
+    letra.toUpperCase()
+  );
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <body>
+      <header role="banner" class="ui-section-header">
+        <div class="ui-layout-container">
+          <div class="ui-section-header__layout ui-layout-flex">
+            {/* <!-- LOGO --> */}
+            <a
+              href="#"
+              role="link"
+              aria-label="#"
+              class="ui-section-header--logo"
+            >
+              <svg
+                viewBox="0 0 18 18"
+                height="18"
+                width="18"
+                role="img"
+                aria-label="#"
+              >
+                <path
+                  fill="#353535"
+                  d="M0 0h4.5v9a4.5 4.5 0 109 0V6H18v3A9 9 0 110 9V0zm18 4.5V0h-4.5v4.5H18z"
+                />
+              </svg>
+            </a>
+            {/* <!-- HAMBURGER --> */}
+            <input type="checkbox" id="ui-section-header--menu-id" />
+            <label
+              for="ui-section-header--menu-id"
+              class="ui-section-header--menu-icon"
+            ></label>
+            {/* <!-- MENU --> */}
+            <nav
+              role="navigation"
+              class="ui-section-header--nav ui-layout-flex"
+            >
+              <a
+                href="#"
+                role="link"
+                aria-label="#"
+                class="ui-section-header--nav-link"
+              >
+                Features
+              </a>
+              <a
+                href="#Pricing"
+                role="link"
+                aria-label="#"
+                class="ui-section-header--nav-link"
+              >
+                Pricing
+              </a>
+              <a
+                href="#"
+                role="link"
+                aria-label="#"
+                class="ui-section-header--nav-link"
+              >
+                About
+              </a>
+            </nav>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </header>
+      <main role="main">
+        <section class="ui-section-hero">
+          <div class="ui-layout-container">
+            <div class="ui-section-hero__layout ui-layout-grid ui-layout-grid-2">
+              {/* <!-- COPYWRITING --> */}
+              <div>
+                <h1>Design better.</h1>
+                <p class="ui-text-intro">
+                  Lorem ipsum dolor sit amet, consectetur lit, enimad eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua ullamco
+                  laboris nisi.
+                </p>
+                {/* <!-- CTA --> */}
+                <div class="ui-component-cta ui-layout-flex">
+                  <a
+                    href="#"
+                    role="link"
+                    aria-label="#"
+                    class="ui-component-button ui-component-button-normal ui-component-button-primary"
+                  >
+                    Get Started for Free
+                  </a>
+                  <p class="ui-text-note">
+                    <small>30 days free trial.</small>
+                  </p>
+                </div>
+              </div>
+              {/* <!-- IMAGE --> */}
+              <img
+                src="https://res.cloudinary.com/uisual/image/upload/assets/devices/ipad.png"
+                loading="lazy"
+                alt="#"
+                class="ui-image-half-right"
+              />
+            </div>
+          </div>
+        </section>
+        <section class="ui-section-customer">
+          <div class="ui-layout-container">
+            <div class="ui-section-customer__layout ui-layout-flex">
+              <img
+                src="https://res.cloudinary.com/uisual/image/upload/assets/logos/facebook.svg"
+                alt="#"
+                class="ui-section-customer--logo"
+              />
+              <img
+                src="https://res.cloudinary.com/uisual/image/upload/assets/logos/pinterest.svg"
+                alt="#"
+                class="ui-section-customer--logo"
+              />
+              <img
+                src="https://res.cloudinary.com/uisual/image/upload/assets/logos/stripe.svg"
+                alt="#"
+                class="ui-section-customer--logo ui-section-customer--logo-str"
+              />
+              <img
+                src="https://res.cloudinary.com/uisual/image/upload/assets/logos/dribbble.svg"
+                alt="#"
+                class="ui-section-customer--logo"
+              />
+              <img
+                src="https://res.cloudinary.com/uisual/image/upload/assets/logos/behance.svg"
+                alt="#"
+                class="ui-section-customer--logo ui-section-customer--logo-bhn"
+              />
+            </div>
+          </div>
+        </section>
+        <section class="ui-section-feature">
+          <div class="ui-layout-container">
+            <div class="ui-section-feature__layout ui-layout-grid ui-layout-grid-2">
+              {/* <!-- IMAGE --> */}
+              <img
+                src="https://res.cloudinary.com/uisual/image/upload/assets/devices/ipad.png"
+                alt="#"
+                class="ui-image-half-left"
+              />
+              {/* <!-- FEATURE --> */}
+              <div>
+                <h2>Nice Features</h2>
+                <p class="ui-text-intro">
+                  Lorem ipsum dolor sit amet, consec adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Enim ad minim veniam, quis nostrud exercitation ullamco nisi
+                  equi.
+                </p>
+                <ul class="ui-component-list ui-component-list-feature ui-layout-grid">
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    Unlimited domain names.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    150&plus; components.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    Lifetime updates.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    24/7 technical support.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="ui-section-feature__layout ui-layout-grid ui-layout-grid-2">
+              {/* <!-- FEATURE --> */}
+              <div>
+                <h2>Nice Features</h2>
+                <p class="ui-text-intro">
+                  Lorem ipsum dolor sit amet, consec adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Enim ad minim veniam, quis nostrud exercitation ullamco nisi
+                  equi.
+                </p>
+                <ul class="ui-component-list ui-component-list-feature ui-layout-grid">
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    Unlimited domain names.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    150&plus; components.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    Lifetime updates.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    24/7 technical support.
+                  </li>
+                </ul>
+              </div>
+              {/* <!-- IMAGE --> */}
+              <img
+                src="https://res.cloudinary.com/uisual/image/upload/assets/devices/ipad.png"
+                alt="#"
+                class="ui-image-half-right"
+              />
+            </div>
+          </div>
+        </section>
+        <section class="ui-section-pricing" id="Pricing">
+          <div class="ui-layout-container">
+            <h2>Fair Prices</h2>
+            <p class="ui-text-intro">Lorem ipsum dolor sit amet.</p>
+            {/* <!-- TOGGLE --> */}
+            <input
+              type="radio"
+              name="toggle"
+              id="ui-component-toggle__monthly"
+              checked
+            />
+            <input
+              type="radio"
+              name="toggle"
+              id="ui-component-toggle__yearly"
+            />
+            <div class="ui-component-toggle ui-layout-flex">
+              <label
+                for="ui-component-toggle__monthly"
+                class="ui-component-toggle--label"
+              >
+                Billed Monthly
+              </label>
+              <label
+                for="ui-component-toggle__yearly"
+                class="ui-component-toggle--label"
+              >
+                Billed Yearly
+              </label>
+            </div>
+            <p class="ui-text-note">
+              <small>Save 15% with a yearly plan.</small>
+            </p>
+            {/* <!-- PRICING --> */}
+            <div class="ui-section-pricing__layout ui-layout-grid ui-layout-grid-3">
+              <div class="ui-component-card ui-component-card--pricing">
+                <span>
+                  <strong>Basic</strong>
+                </span>
+                {/*  AMOUNT */}
+                <div class="ui-component-card--pricing-price">
+                  <span class="ui-component-card--pricing-amount ui-component-card--pricing-amount-1"></span>
+                  <span>/</span>
+                  <span>month</span>
+                </div>
+                <span>
+                  <small>Perfect for early-stage startups.</small>
+                </span>
+                {/* <!-- LIST --> */}
+                <ul class="ui-component-list ui-component-list--pricing ui-layout-grid">
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    1 domain name.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    HTML components.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-cross">
+                    Priority support.
+                  </li>
+                </ul>
+                {/* <!-- CTA --> */}
+                <a
+                  href="#"
+                  class="ui-component-button ui-component-button-big ui-component-button-secondary"
+                  role="link"
+                  aria-label="#"
+                >
+                  Get Started
+                </a>
+              </div>
+              <div class="ui-component-card ui-component-card--pricing">
+                <span>
+                  <strong>Standard</strong>
+                </span>
+                {/* <!-- AMOUNT --> */}
+                <div class="ui-component-card--pricing-price">
+                  <span class="ui-component-card--pricing-amount ui-component-card--pricing-amount-2"></span>
+                  <span>/</span>
+                  <span>month</span>
+                </div>
+                <span>
+                  <small>Perfect for early-stage startups.</small>
+                </span>
+                {/* <!-- LIST --> */}
+                <ul class="ui-component-list ui-component-list--pricing ui-layout-grid">
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    1 domain name.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    HTML components.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    Priority support.
+                  </li>
+                </ul>
+                {/* <!-- CTA --> */}
+                <a
+                  href="#"
+                  class="ui-component-button ui-component-button-big ui-component-button-primary"
+                  role="link"
+                  aria-label="#"
+                >
+                  Get Started
+                </a>
+              </div>
+              <div class="ui-component-card ui-component-card--pricing">
+                <span>
+                  <strong>Special</strong>
+                </span>
+                {/* <!-- AMOUNT --> */}
+                <div class="ui-component-card--pricing-price">
+                  <span class="ui-component-card--pricing-amount ui-component-card--pricing-amount-3"></span>
+                  <span>/</span>
+                  <span>month</span>
+                </div>
+                <span>
+                  <small>Perfect for early-stage startups.</small>
+                </span>
+                {/* <!-- LIST --> */}
+                <ul class="ui-component-list ui-component-list--pricing ui-layout-grid">
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    1 domain name.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    HTML components.
+                  </li>
+                  <li class="ui-component-list--item ui-component-list--item-check">
+                    Priority support.
+                  </li>
+                </ul>
+                {/* <!-- CTA --> */}
+                <a
+                  href="#"
+                  class="ui-component-button ui-component-button-big ui-component-button-secondary"
+                  role="link"
+                  aria-label="#"
+                >
+                  Get Started
+                </a>
+              </div>
+            </div>
+            {/* <!-- NOTE --> */}
+            <p class="text-white">
+              Have questions?{" "}
+              <a
+                href="#"
+                role="link"
+                aria-label="#"
+                class=" text-slate-200 hover:underline underline-offset-4"
+              >
+                Contact us
+              </a>
+              .
+            </p>
+          </div>
+        </section>
+        <section class="ui-section-testimonial">
+          <div class="ui-layout-container">
+            <div class="ui-section-testimonial__layout ui-layout-grid ui-layout-grid-2">
+              <div class="ui-layout-column-4">
+                <img
+                  src="https://res.cloudinary.com/uisual/image/upload/assets/icons/avatar.svg"
+                  alt="#"
+                  class="ui-section-testimonial--avatar"
+                />
+                <p class="ui-section-testimonial--quote ui-text-intro">
+                  &ldquo;Lorem ipsum dolor sit amet, consec adipiscing elit, sed
+                  do eiusmod tempor incididunt labore dolore magna.&rdquo;
+                </p>
+                <p class="ui-section-testimonial--author">
+                  <strong>Jane Doe</strong>
+                  <br></br>
+                  <small class="ui-text-note">CEO of Company</small>
+                </p>
+              </div>
+              <div class="ui-layout-column-4">
+                <img
+                  src="https://res.cloudinary.com/uisual/image/upload/assets/icons/avatar.svg"
+                  alt="#"
+                  class="ui-section-testimonial--avatar"
+                />
+                <p class="ui-section-testimonial--quote ui-text-intro">
+                  &ldquo;Lorem ipsum dolor sit amet, consec adipiscing elit, sed
+                  do eiusmod tempor incididunt labore dolore magna.&rdquo;
+                </p>
+                <p class="ui-section-testimonial--author">
+                  <strong>Jane Doe</strong>
+                  <br></br>
+                  <small class="ui-text-note">CEO of Company</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="ui-section-close">
+          <div class="ui-layout-container">
+            <div class="ui-layout-column-6 ui-layout-column-center">
+              <h2>Ready to start?</h2>
+              <p class="ui-text-intro">{fechaFormateadaMayusculas}</p>
+              {/* <!-- CTA --> */}
+              <div class="ui-component-cta ui-layout-flex">
+                <a
+                  href="#"
+                  role="link"
+                  aria-label="#"
+                  class="ui-component-button ui-component-button-normal ui-component-button-primary"
+                >
+                  Get Started for Free
+                </a>
+                <p class="ui-text-note">
+                  <small>30 days free trial.</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="Suscription" class=" bg-white-bg">
+          <SuscriptionPage />
+        </section>
+      </main>
+      <footer role="contentinfo" class="ui-section-footer">
+        <div class="ui-layout-container">
+          <div class="ui-section-footer__layout ui-layout-flex">
+            {/* <!-- COPYRIGHT --> */}
+            <p class="ui-section-footer--copyright ui-text-note">
+              <small>&copy; 0000 Uisual</small>
+            </p>
+            {/* <!-- MENU --> */}
+            <a href="#" role="link" aria-label="#">
+              <svg
+                viewBox="0 0 24 24"
+                height="16"
+                width="16"
+                fill="none"
+                stroke="#AEAEAE"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                role="img"
+                aria-label="#"
+              >
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+              </svg>
+            </a>
+            <a href="#" role="link" aria-label="#">
+              <svg
+                viewBox="0 0 24 24"
+                height="16"
+                width="16"
+                fill="none"
+                stroke="#AEAEAE"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                role="img"
+                aria-label="#"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" />
+              </svg>
+            </a>
+            <a href="#" role="link" aria-label="#">
+              <svg
+                viewBox="0 0 24 24"
+                height="16"
+                width="16"
+                fill="none"
+                stroke="#AEAEAE"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                role="img"
+                aria-label="#"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </body>
   );
 }
