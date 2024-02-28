@@ -286,7 +286,7 @@ svg {
   margin-right: auto;
   background-color: rgb(231, 230, 230);
   border-radius: var(--ui-radius-button);
-  width: 400px;
+  width: 350px;
   color: var(--ui-color-brand);
   margin-bottom: 20px;
 }

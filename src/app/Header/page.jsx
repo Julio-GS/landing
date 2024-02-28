@@ -34,10 +34,11 @@ export default function Header() {
           {/* <!-- MENU --> */}
           <nav role="navigation" class="ui-section-header--nav ui-layout-flex">
             <a
-              href="#"
+              href="#Features"
               role="link"
               aria-label="#"
               class="ui-section-header--nav-link"
+              on
             >
               Features
             </a>
@@ -56,6 +57,14 @@ export default function Header() {
               class="ui-section-header--nav-link"
             >
               About
+            </a>
+            <a
+              href="#Suscription"
+              role="link"
+              aria-label="#"
+              class="ui-section-header--nav-link"
+            >
+              Join
             </a>
           </nav>
         </div>
