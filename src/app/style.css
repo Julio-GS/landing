@@ -280,22 +280,46 @@ svg {
   text-decoration: none;
 }
 
-.emailInput {
-  flex: 1; /* Ocupa todo el espacio disponible */
-  padding: 10px;
+.inputContainer {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(231, 230, 230);
   border-radius: var(--ui-radius-button);
+  width: 400px;
+  color: var(--ui-color-brand);
+  margin-bottom: 20px;
+}
+
+.emailInput {
+  border-radius: var(--ui-radius-button);
+  background-color: rgb(231, 230, 230);
   font-weight: 700;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
+}
+
+.emailInput:focus {
+  outline: none;
 }
 
 .ui-component-button-per {
   border-radius: var(--ui-radius-button);
+  position: absolute;
   display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
   font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  text-decoration: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  background-color: var(--ui-color-brand);
+  color: var(--ui-color-typography-button);
 }
 
 .ui-component-button-primary {

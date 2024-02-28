@@ -15,9 +15,15 @@ export default function RootLayout({ children }) {
         {/* <!-- META --> */}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="uisual" content="Made with Uisual (uisual.com)" />
-        <meta name="author" content="#" />
-        <meta name="description" content="#" />
+        <meta
+          name="Prueba Tecnica Landing"
+          content="Prueba tecnica realizada con JavaScript / React / Next.Js / Tailwind css"
+        />
+        <meta name="author" content="Julio Gomez" />
+        <meta
+          name="description"
+          content="Prueba tecnica de Landing Page para Grupo Cober"
+        />
         <meta name="referrer" content="unsafe-url" />
         <meta name="robots" content="index, follow" />
         {/* <!-- SPEED --> */}
@@ -39,7 +45,7 @@ export default function RootLayout({ children }) {
         <link rel="preload" as="style" href="./style.css" />
         <link rel="stylesheet" href="./style.css" />
         {/* <!-- TITLE --> */}
-        <title>Layer: Free Landing Page Template from Uisual</title>
+        <title>Prueba Tecnica Grupo Cober</title>
       </head>
       <body className={inter.className}>{children}</body>
     </html>
